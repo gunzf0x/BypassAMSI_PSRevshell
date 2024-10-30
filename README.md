@@ -1,0 +1,1 @@
+# BypassAMSI_PSRevshell

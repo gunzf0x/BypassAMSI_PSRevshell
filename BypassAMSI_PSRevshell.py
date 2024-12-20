@@ -63,7 +63,8 @@ def get_arguments_from_user()->argparse.Namespace:
     ## Define 'revshell' command
     revshell: str = 'revshell' # command name
     revshell_command = commands.add_parser(revshell, help=f'{color["CYAN"]}Generate an obfuscated {color["RED"]}PowerShell{color["CYAN"]} payload to avoid {color["RED"]}Windows Defender{color["RESET"]}', 
-                    description=f'{color["CYAN"]}Generate an obfuscated {color["RED"]}PowerShell{color["CYAN"]} payload to avoid {color["RED"]}Windows Defender{color["RESET"]}', epilog=f"Example: {sys.argv[0]} revshell -i 10.10.16.98 -p 4444")
+                    description=f'{color["CYAN"]}Generate an obfuscated {color["RED"]}PowerShell{color["CYAN"]} payload to avoid {color["RED"]}Windows Defender{color["RESET"]}', 
+                                           epilog=f"{color['YELLOW']}Example:{color['BLUE']} {sys.argv[0]} revshell -i 10.10.16.98 -p 4444{color['RESET']}")
     revshell_command.add_argument('-i', '--attacker-ip', type=str, required=True, help='Attacker IP address.')
     revshell_command.add_argument('-p', '--port', type=int, required=True, help='Port to get revshell.')
     revshell_command.add_argument('-v', '--verbose', action='store_true', help='Display payloads used and generated, along with some extra info.')
@@ -74,7 +75,8 @@ def get_arguments_from_user()->argparse.Namespace:
     ## Define 'server' command
     server_str: str = 'server' # command name
     server_command = commands.add_parser(server_str, help=f'{color["CYAN"]}Set a temporal HTTP server that will then call a {color["RED"]}PowerShell{color["CYAN"]} payload to avoid {color["RED"]}Windows Defender{color["RESET"]}', 
-                    description=f'{color["CYAN"]}Generate an obfuscated {color["RED"]}PowerShell{color["CYAN"]} payload to avoid {color["RED"]}Windows Defender{color["RESET"]}', epilog=f"Example: {sys.argv[0]} server -i 10.10.16.98")
+                    description=f'{color["CYAN"]}Generate an obfuscated {color["RED"]}PowerShell{color["CYAN"]} payload to avoid {color["RED"]}Windows Defender{color["RESET"]}', 
+                                         epilog=f"{color['YELLOW']}Example:{color['BLUE']} {sys.argv[0]} server -i 10.10.16.98 -p 4444{color['RESET']}")
     server_command.add_argument('-i', '--attacker-ip', type=str, required=True, help='Attacker IP address serving temporal HTTP server.')
     server_command.add_argument('-p', '--port', type=int, required=True, help='Listening port to get reverse shell.')
     server_command.add_argument('--server-port', type=int, default=8000, help='Port serving temporal HTTP server. Default: 8000.')

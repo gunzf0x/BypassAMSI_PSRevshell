@@ -10,7 +10,8 @@ import socketserver
 
 # ====================================================================================================================================
 # ====================================================================================================================================
-# Obfuscation characters. Strings at the left will be replaced with those at the right. Edit this if you want custom obfuscation
+# Obfuscation characters. Strings at the left (originals from Nishang) will be replaced with those at the right. 
+# Edit this if you want custom obfuscation
 obf_dict = {
     "$client": "$c",
     "$stream": "$s",
